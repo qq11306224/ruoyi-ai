@@ -52,7 +52,7 @@ public class SysRegisterService {
         String password = registerBody.getPassword();
 
         // 检查验证码是否正确
-        validateEmail(username,registerBody.getCode());
+        //validateEmail(username,registerBody.getCode());
         SysUserBo sysUser = new SysUserBo();
         sysUser.setDomainName(registerBody.getDomainName());
         sysUser.setUserName(username);
