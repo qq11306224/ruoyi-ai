@@ -64,6 +64,7 @@ public class OllamaServiceImpl  {
                     }
                 };
                 api.chat(requestModel, streamHandler);
+                log.info("Ollama 响应数据: {}", response.toString());
                 emitter.complete();
             } catch (Exception e) {
                 SSEUtil.sendErrorEvent(emitter, e.getMessage());
