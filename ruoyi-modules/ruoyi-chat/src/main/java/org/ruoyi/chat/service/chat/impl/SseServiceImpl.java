@@ -140,7 +140,7 @@ public class SseServiceImpl implements ISseService {
         List<Message> messages = chatRequest.getMessages();
         String sysPrompt = chatModelVo.getSystemPrompt();
         if(StringUtils.isEmpty(sysPrompt)){
-            sysPrompt ="你是专业读取知识库的矩阵云客服，用户会问你关于知识库的相关问题，你需要认真检索知识库里的内容然后进行回答。" +
+            sysPrompt ="你是专业读取知识库的矩阵云客服，是由矩阵（Matrix）软件公司打造,用户会问你关于知识库的相关问题，你需要认真检索知识库里的内容然后进行回答。" +
                     "当前时间："+ DateUtils.getDate()+
                     "#注意：回复之前注意结合上下文和工具返回内容进行回复。";
         }
