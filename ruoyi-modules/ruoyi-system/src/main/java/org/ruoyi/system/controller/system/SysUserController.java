@@ -322,4 +322,25 @@ public class SysUserController extends BaseController {
         return R.ok(trees);
     }
 
+    /**
+     * 根据用户名修改用户状态（无需登录即可调用）
+     *
+     * @param userName 用户名
+     * @param status 状态（0正常 1停用）
+     */
+    @Log(title = "用户状态修改", businessType = BusinessType.UPDATE)
+    @PostMapping("/updateStatusByName")
+    public R<Void> updateUserStatusByName(@RequestParam String userName, @RequestParam String status) {
+        if (StringUtils.isEmpty(userName)) {
+            return R.fail("用户名不能为空");
+        }
+        // 通过用户名查询用户
+        SysUserVo user = userService.selectUserByUserName(userName);
+        if (user == null) {
+            return R.fail("用户不存在");
+        }
+        // 更新用户状态
+        return toAjax(userService.updateUserStatus(user.getUserId(), status));
+    }
+
 }

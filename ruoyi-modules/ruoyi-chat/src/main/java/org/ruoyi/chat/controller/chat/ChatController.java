@@ -49,6 +49,11 @@ public class ChatController {
     @PostMapping("/send")
     @ResponseBody
     public SseEmitter sseChat(@RequestBody @Valid ChatRequest chatRequest, HttpServletRequest request) {
+        // 默认查询当前登录用户消息记录
+        LoginUser loginUser = LoginHelper.getLoginUser();
+        if (loginUser == null) {
+            throw new BaseException("用户未登录！");
+        }
         return sseService.sseChat(chatRequest,request);
     }
 
