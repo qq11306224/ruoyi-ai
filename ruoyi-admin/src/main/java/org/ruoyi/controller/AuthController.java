@@ -122,13 +122,13 @@ public class AuthController {
     /**
      * 用户注册
      */
-    @PostMapping("/register")
-    public R<Void> register(@Validated @RequestBody RegisterBody user, HttpServletRequest request) {
-        String domainName =  request.getServerName();
-        user.setDomainName(domainName);
-        registerService.register(user);
-        return R.ok();
-    }
+//    @PostMapping("/register")
+//    public R<Void> register(@Validated @RequestBody RegisterBody user, HttpServletRequest request) {
+//        String domainName =  request.getServerName();
+//        user.setDomainName(domainName);
+//        registerService.register(user);
+//        return R.ok();
+//    }
 
     /**
      * 重置密码
